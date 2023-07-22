@@ -1,0 +1,4 @@
+﻿  test.c
+D:\Code\test_7_21\test_7_21\test.c(84,12): warning C4013: “my_strlen”未定义；假设外部返回 int
+test.obj : error LNK2019: 无法解析的外部符号 my_strlen，函数 main 中引用了该符号
+D:\Code\test_7_21\x64\Debug\test_7_21.exe : fatal error LNK1120: 1 个无法解析的外部命令
