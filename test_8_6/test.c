@@ -93,31 +93,73 @@
 //fabcde
 
 //abcdefabcdef
-int is_left_move(char* str1, char* str2)
+//int is_left_move(char* str1, char* str2)
+//{
+//	int len1 = (int)strlen(str1);
+//	int len2 = (int)strlen(str2);
+//	if (len1 != len2)
+//		return 0;
+//	//1.在str1字符串中追加1个str1字符串
+//	//strcat(str1, str1);//err
+//	strncat(str1, str1, len1);
+//	//2.判断str2指向的字符串是否为str1指向的字符串的子串
+//	//strstr - 找子串
+//	char* ret = strstr(str1, str2);
+//	if (ret == NULL)
+//		return 0;
+//	else
+//		return 1;
+//}
+//int main()
+//{
+//	char arr1[30] = "abcdef";
+//	char arr2[] = "cdefab";
+//	int ret = is_left_move(arr1, arr2);
+//	if (ret == 1)
+//		printf("Yes");
+//	else
+//		printf("No");
+//	return 0;
+//}
+
+int FindNum(int arr[3][3], int k, int* px , int* py )
 {
-	int len1 = (int)strlen(str1);
-	int len2 = (int)strlen(str2);
-	if (len1 != len2)
-		return 0;
-	//1.在str1字符串中追加1个str1字符串
-	//strcat(str1, str1);//err
-	strncat(str1, str1, len1);
-	//2.判断str2指向的字符串是否为str1指向的字符串的子串
-	//strstr - 找子串
-	char* ret = strstr(str1, str2);
-	if (ret == NULL)
-		return 0;
-	else
-		return 1;
+	int x = 0;
+	int y = *py-1;
+	while (y>=0&&x<=*px-1)
+	{
+		if (arr[x][y] > k)
+		{
+			y--;
+		}
+		else if (arr[x][y] < k)
+		{
+			x++;
+		}
+		else
+		{
+			*px = x;
+			*py = y;
+			return 1;
+		}
+	}
+	return 0;
+
 }
 int main()
 {
-	char arr1[30] = "abcdef";
-	char arr2[] = "cdefab";
-	int ret = is_left_move(arr1, arr2);
+	int arr[3][3] = { {1,2,3},{4,5,6},{7,8,9} };
+	int key = 7;
+	int x = 3;
+	int y = 3;
+	//返回型参数
+	int ret = FindNum(arr, key,&x,&y);
 	if (ret == 1)
-		printf("Yes");
+	{
+		printf("找到了\n");
+		printf("下标是:%d %d", x, y);
+	}
 	else
-		printf("No");
+		printf("找不到");
 	return 0;
 }
