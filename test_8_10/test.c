@@ -54,29 +54,83 @@
 //	return 0;
 //}
 
-char* my_strncat(char* dest, const char* src, size_t num)
+//char* my_strncat(char* dest, const char* src, size_t num)
+//{
+//	char* ret = dest;
+//	assert(dest && src);
+//	while (*dest)
+//	{
+//		dest++;
+//	}
+//	while (num&&(* dest++ = *src++))
+//	{
+//		num--;
+//	}
+//	if (num == 0)
+//	{
+//		*dest = '\0';
+//	}
+//	return ret;
+//}
+
+//char* my_strncat(char* dest,const char* src, size_t num)
+//{
+//	char* ret = dest;
+//	assert(dest && src);
+//	while (*dest++)
+//	{
+//		;
+//	}
+//	dest--;
+//	while (num--)
+//	{
+//		if ((*dest++ = *src++) == 0)
+//			return ret;
+//	}
+//	*dest = '\0';
+//	return ret;
+//}
+//
+//int main()
+//{
+//	char arr1[20] = "hello\0xxxxxxxxxxx";
+//	char arr2[] = "world";
+//	my_strncat(arr1, arr2, 8);
+//	return 0;
+//}
+
+int my_strncmp(const char* str1, const char* str2, size_t num)
 {
-	char* ret = dest;
-	assert(dest && src);
-	while (*dest)
-	{
-		dest++;
-	}
-	while (num&&(* dest++ = *src++))
+	while (num && (*str1 == *str2))
 	{
 		num--;
+		if (*str1 == '\0')
+		{
+			return 0;
+		}
+		if (num)
+		{
+			str1++;
+			str2++;
+		}
 	}
-	if (num == 0)
+	if (*str1 < *str2)
 	{
-		*dest = '\0';
+		return -1;
 	}
-	return ret;
+	else if (*str1 > *str2)
+	{
+		return 1;
+	}
+	else
+		return 0;
 }
 
 int main()
 {
-	char arr1[20] = "hello";
-	char arr2[] = "world";
-	my_strncat(arr1, arr2, 3);
+	const char* p1 = "abcdef";
+	const char* p2 = "abcqwer";
+	int ret=my_strncmp(p1, p2, 4);
+	printf("%d", ret);
 	return 0;
 }
