@@ -1,0 +1,4 @@
+﻿  test.c
+D:\Code\cjcp\test.c(75,12): warning C4013: “gets”未定义；假设外部返回 int
+D:\Code\cjcp\test.c(75,8): warning C4047: “初始化”:“char *”与“int”的间接级别不同
+  cjcp.vcxproj -> D:\Code\cjcp\x64\Debug\cjcp.exe
