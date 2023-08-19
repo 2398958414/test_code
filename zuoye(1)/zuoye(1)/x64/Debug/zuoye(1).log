@@ -1,0 +1,5 @@
+﻿  test.c
+D:\Code\zuoye(1)\test.c(220,8): warning C4473: “scanf”: 没有为格式字符串传递足够的参数
+D:\Code\zuoye(1)\test.c(220,8): message : 占位符和其参数预计 6 可变参数，但提供的却是 1 参数
+D:\Code\zuoye(1)\test.c(220,8): message : 缺失的可变参数 2 为格式字符串“%d”所需
+D:\Code\zuoye(1)\test.c(214): fatal  error C1075: “{”: 未找到匹配令牌
