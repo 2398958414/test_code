@@ -148,40 +148,86 @@
 //	return 0;
 //}
 
-char* my_strstr(const char* p1, const char* p2)
-{
-	char* s1 = NULL;
-	char* s2 = NULL;
-	char* cur = (char*)p1;
-	assert(p1 && p2);
-	if (!*p2)
-		return (char*)p1;
-	while (*cur)
-	{
-		s1 = cur;
-		s2 = (char*)p2;
-		while (*s1&&*s2 && (*s1 == *s2))
-		{
-			s1++;
-			s2++;
-		}
-		if (!*s2)
-		{
-			return cur;
-		}
-		cur++;
-	}
-	return NULL;
-}
+//char* my_strstr(const char* p1, const char* p2)
+//{
+//	char* s1 = NULL;
+//	char* s2 = NULL;
+//	char* cur = (char*)p1;
+//	assert(p1 && p2);
+//	if (!*p2)
+//		return (char*)p1;
+//	while (*cur)
+//	{
+//		s1 = cur;
+//		s2 = (char*)p2;
+//		while (*s1&&*s2 && (*s1 == *s2))
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		if (!*s2)
+//		{
+//			return cur;
+//		}
+//		cur++;
+//	}
+//	return NULL;
+//}
+//
+//int main()
+//{
+//	char* p1 = "abbbcdef";
+//	char* p2 = "bbc";
+//	char* p = my_strstr(p1, p2);
+//	if (p == NULL)
+//		printf("找不到");
+//	else
+//		printf("%s", p);
+//	return 0;
+//}
 
+//void my_memcpy(void* dest,const void* src, size_t num)
+//{
+//	assert(dest && src);
+//	while (num--)
+//	{
+//		*(char*)dest = *(char*)src;
+//		dest = (char*)dest + 1;
+//		((char*)src)++;
+//	}
+//}
+//int main()
+//{
+//	int arr1[20] = { 0 };
+//	int arr2[] = { 1,2,3,4,5 };
+//	my_memcpy(arr1, arr2,sizeof(arr2));
+//	return 0;
+//}
+
+void my_memmove(void* dest,const void* src, size_t num)
+{
+
+	assert(dest && src);
+	if (dest < src)
+	{
+		while (num--)
+		{
+			*(char*)dest = *(char*)src;
+			dest = (char*)dest + 1;
+			((char*)src)++;
+		}
+	}
+	else
+	{
+		while (num--)
+		{
+			*((char*)dest + num) = *((char*)src + num);
+		}
+	}
+}
 int main()
 {
-	char* p1 = "abbbcdef";
-	char* p2 = "bbce";
-	char* p = my_strstr(p1, p2);
-	if (p == NULL)
-		printf("找不到");
-	else
-		printf("%s", p);
+	int arr1[] = { 1,2,3,4,5,6,7,8,9,10 };
+	my_memmove(arr1+8 , arr1+3, 20);
 	return 0;
 }
