@@ -70,25 +70,90 @@
 //}
 
 //枚举类型
-enum sex
-{
-	//枚举的可能取值 - 常量
-	Male,//0
-	Female,//1
-	Secret//2
-};
-enum color
-{
-	Red,
-	Green=9,
-	Blue
-};
+//enum sex
+//{
+//	//枚举的可能取值 - 常量
+//	Male,//0
+//	Female,//1
+//	Secret//2
+//};
+//enum color
+//{
+//	Red,
+//	Green=9,
+//	Blue
+//};
+//
+//int main()
+//{
+//	enum sex s = Male;
+//	enum color c = Green;
+//	printf("%d %d %d\n", Male, Female, Secret);
+//	printf("%d %d %d", Red, Green, Blue);
+//	return 0;
+//}
 
+//联合 - 联合体 - 共用体
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//
+//int main()
+//{
+//	union Un u;
+//	printf("%d\n", (int)sizeof(u));
+//	
+//	printf("%p\n", &u);
+//	printf("%p\n", &(u.c));
+//	printf("%p\n", &(u.i));
+//	return 0;
+//}
+
+//int check_sys()
+//{
+//	int a = 1;
+//	//返回1,小端存储
+//	//返回0,大端存储
+//	return *(char*)&a;
+//}
+
+//int check_sys()
+//{
+//	union Un
+//	{
+//		char c;
+//		int i;
+//	}u;
+//	u.i = 1;
+//	//返回1,小端存储
+//	//返回0,大端存储
+//	return u.c;
+//}
+//
+//int main()
+//{
+//	int ret = check_sys();
+//	if (ret == 1)
+//	{
+//		printf("小端");
+//	}
+//	else
+//	{
+//		printf("大端");
+//	}
+//	return 0;
+//}
+
+union Un
+{
+	int a;//4
+	char arr[5];//5  1 8 1
+};
 int main()
 {
-	enum sex s = Male;
-	enum color c = Green;
-	printf("%d %d %d\n", Male, Female, Secret);
-	printf("%d %d %d", Red, Green, Blue);
+	union Un u;
+	printf("%d", (int)sizeof(u));
 	return 0;
 }
