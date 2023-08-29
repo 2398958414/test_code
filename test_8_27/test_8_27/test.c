@@ -59,36 +59,75 @@
 
 //realloc
 //用来调整动态开辟的内存空间的大小
+//int main()
+//{
+//	int* p = malloc(20);
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		*(p + i) = i;
+//	}
+//
+//	//realloc使用的注意事项:
+//	//1.如果p指向的空间之后有足够的内存空间可以追加,则直接追加,后返回p
+//	//2.如果p指向的空间之后没有足够的内存空间可以追加,则realloc函数会重新找一块新的内存区域
+//	//开辟一块满足需求的空间,并把原来的数据拷贝回来,释放旧的内存空间,最后返回新开辟的内存空间地址
+//	//3.得用一个新的变量来接收realloc函数的返回值
+//
+//	int* ptr = realloc(p, 40);
+//	if (ptr == NULL)
+//	{
+//		printf("%s", strerror(errno));
+//	}
+//	else
+//	{
+//		p = ptr;
+//		for (i = 5; i < 10; i++)
+//		{
+//			*(p + i) = i;
+//		}
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d ", *(p + i));
+//		}
+//	}
+//}
+
 int main()
 {
-	int* p = malloc(20);
-	int i = 0;
-	for (i = 0; i < 5; i++)
-	{
-		*(p + i) = i;
-	}
+	//1.对NULL进行解引用操作
+	//int* p = (int*)malloc(40);
+	//需对p进行相关的判断
+	////万一malloc创建失败,p被赋值为NULL
+	//*p = 0;//err
+	// 
+	//free(p);
+	//p = NULL; 
 
-	//realloc使用的注意事项:
-	//1.如果p指向的空间之后有足够的内存空间可以追加,则直接追加,后返回p
-	//2.如果p指向的空间之后没有足够的内存空间可以追加,则realloc函数会重新找一块新的内存区域
-	//开辟一块满足需求的空间,并把原来的数据拷贝回来,释放旧的内存空间,最后返回新开辟的内存空间地址
-	//3.得用一个新的变量来接收realloc函数的返回值
+	//2.对动态开辟空间的越界访问
+	//int* p = (int*)malloc(5 * sizeof(int));
+	//if (p == NULL)
+	//{
+	//	return 0;
+	//}
+	//else
+	//{
+	//	int i = 0;
+	//	for (i = 0; i < 10; i++)
+	//	{
+	//		*(p + i) = i;
+	//	}
+	//}
+	// 
+	//free(p);
+	//p = NULL;
 
-	int* ptr = realloc(p, 40);
-	if (ptr == NULL)
-	{
-		printf("%s", strerror(errno));
-	}
-	else
-	{
-		p = ptr;
-		for (i = 5; i < 10; i++)
-		{
-			*(p + i) = i;
-		}
-		for (i = 0; i < 10; i++)
-		{
-			printf("%d ", *(p + i));
-		}
-	}
+	//3.对非动态开辟内存使用free释放
+	int a = 10;
+	int* p = &a;
+	*p = 20;
+
+	free(p);
+	p = NULL;
+	return 0;
 }
