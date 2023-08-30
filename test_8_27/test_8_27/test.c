@@ -96,8 +96,8 @@
 int main()
 {
 	//1.对NULL进行解引用操作
+	//解决方法:需对p进行相关的判断
 	//int* p = (int*)malloc(40);
-	//需对p进行相关的判断
 	////万一malloc创建失败,p被赋值为NULL
 	//*p = 0;//err
 	// 
@@ -123,11 +123,47 @@ int main()
 	//p = NULL;
 
 	//3.对非动态开辟内存使用free释放
-	int a = 10;
-	int* p = &a;
-	*p = 20;
+	//int a = 10;
+	//int* p = &a;
+	//*p = 20;
 
-	free(p);
-	p = NULL;
+	//free(p);
+	//p = NULL;
+	//return 0;
+
+	//4.使用free释放动态开辟内存的一部分
+	//int* p = malloc(40);
+	//if (p == NULL)
+	//{
+	//	return 0;
+	//}
+	//int i = 0;
+	//for (i = 0; i < 10; i++)
+	//{
+	//	*p++ = i;
+	//}
+
+	//free(p);
+	//p = NULL;
+
+	//5.对同一块动态内存进行多次释放
+	//int* p = malloc(40);
+	//if (p == NULL)
+	//{
+	//	return 0;
+	//}
+	////使用
+	////释放
+	//free(p);
+	////....
+	////解决办法:将p置为NULL
+	//p = NULL;
+	//free(p);
+
+	//6.动态开辟内存忘记释放(内存泄漏)
+	//while (1)
+	//{
+	//	malloc(1);
+	//}
 	return 0;
 }
