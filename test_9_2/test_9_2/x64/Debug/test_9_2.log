@@ -1,0 +1,4 @@
+﻿  test.c
+D:\Code\test_9_2\test_9_2\test.c(14,16): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char *”
+D:\Code\test_9_2\test_9_2\test.c(14,16): warning C4313: "printf": 格式字符串中的 "%x" 与类型为 "char *" 的参数 1 冲突
+  test_9_2.vcxproj -> D:\Code\test_9_2\x64\Debug\test_9_2.exe
