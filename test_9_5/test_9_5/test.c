@@ -119,23 +119,66 @@
 //	return 0;
 //}
 
+//struct S
+//{
+//	int n;
+//	float score;
+//	char arr[15];
+//};
+//int main()
+//{
+//	struct S s = { 100,3.14f,"abcdef" };
+//	struct S tmp = { 0 };
+//	char buf[1024] = { 0 };
+//	//把格式化的数据转换成字符串存储到buf
+//	sprintf(buf, "%d %f %s", s.n, s.score, s.arr);
+//	//printf("%s", buf);
+//
+//	//从buf中读取格式化的数据到tmp
+//	sscanf(buf, "%d %f %s", &(tmp.n), &(tmp.score), tmp.arr);
+//	printf("%d %f %s", tmp.n, tmp.score, tmp.arr);
+//	return 0;
+//}
+
+//struct S
+//{
+//	char name[20];
+//	int age;
+//	double score;
+//};
+//int main()
+//{
+//	struct S s = { "张三",18,80.5 };
+//	FILE* pf = fopen("test.txt", "wb");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//二进制的方式写文件
+//	fwrite(&s, sizeof(struct S), 1, pf);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
 struct S
 {
-	int n;
-	float score;
-	char arr[15];
+	char name[20];
+	int age;
+	double score;
 };
 int main()
 {
-	struct S s = { 100,3.14f,"abcdef" };
 	struct S tmp = { 0 };
-	char buf[1024] = { 0 };
-	//把格式化的数据转换成字符串存储到buf
-	sprintf(buf, "%d %f %s", s.n, s.score, s.arr);
-	//printf("%s", buf);
-
-	//从buf中读取格式化的数据到tmp
-	sscanf(buf, "%d %f %s", &(tmp.n), &(tmp.score), tmp.arr);
-	printf("%d %f %s", tmp.n, tmp.score, tmp.arr);
+	FILE* pf = fopen("test.txt", "rb");
+	if (pf == NULL)
+	{
+		return 0;
+	}
+	//二进制的方式读文件
+	fread(&tmp, sizeof(struct S), 1, pf);
+	printf("%s %d %lf", tmp.name, tmp.age, tmp.score);
+	fclose(pf);
+	pf = NULL;
 	return 0;
 }
