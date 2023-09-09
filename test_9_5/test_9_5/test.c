@@ -161,24 +161,103 @@
 //	return 0;
 //}
 
-struct S
-{
-	char name[20];
-	int age;
-	double score;
-};
+//struct S
+//{
+//	char name[20];
+//	int age;
+//	double score;
+//};
+//int main()
+//{
+//	struct S tmp = { 0 };
+//	FILE* pf = fopen("test.txt", "rb");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//二进制的方式读文件
+//	fread(&tmp, sizeof(struct S), 1, pf);
+//	printf("%s %d %lf", tmp.name, tmp.age, tmp.score);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt","r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//1.定位文件指针
+//	fseek(pf, -2, SEEK_END);
+//	//2.读文件
+//	int ch = fgetc(pf);
+//	printf("%c", ch);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//1.定位文件指针
+//	//fseek(pf, -2, SEEK_END);
+//	int ch=fgetc(pf);
+//	printf("%c\n",  ch);
+//	
+//	//int pos = ftell(pf);
+//	//printf("%d", pos);
+//
+//	rewind(pf);
+//	ch = fgetc(pf);
+//	printf("%c", ch);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
 int main()
 {
-	struct S tmp = { 0 };
-	FILE* pf = fopen("test.txt", "rb");
+	//perror
+	//strerror - 将错误码所对应的错误信息的字符串地址返回
+	FILE* pf = fopen("test2.txt", "r");
+	//if (pf == NULL)
+	//{
+	//	printf("%s\n", strerror(errno));
+	//}
+	
 	if (pf == NULL)
 	{
-		return 0;
+		perror("open file test2.txt");
 	}
-	//二进制的方式读文件
-	fread(&tmp, sizeof(struct S), 1, pf);
-	printf("%s %d %lf", tmp.name, tmp.age, tmp.score);
+	//读文件
+
 	fclose(pf);
 	pf = NULL;
 	return 0;
 }
+
+//int main()
+//{
+//	//EOF - end of file - 文件结束标志
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	int ch = fgetc(pf);
+//	printf("%d", ch);//-1
+//	
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
