@@ -64,12 +64,57 @@ extern int Add(int x, int y);
 #define reg register
 #define do_forever for(;;)
 
+//int main()
+//{
+//	do_forever;
+//	//reg int a;
+//	//int max = MAX;
+//	//printf("%d\n", max);
+//	//printf("%s", STR);
+//	return 0;
+//}
+
+//∂®“Â∫Í
+//#define SQUARE(X) (X)*(X)
+//int main()
+//{
+//	//int ret = SQUARE(5);
+//	//printf("%d", ret);
+//
+//	//int ret = SQUARE(5 + 1);
+//	//printf("%d", ret);
+//	return 0;
+//}
+
+//#define DOUBLE(X) ((X)+(X))
+//int main()
+//{
+//	int a = 5;
+//	int ret = 10 * DOUBLE(a);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+//#define PRINT(X) printf("the value of "#X" is %d\n",X)
+//int main()
+//{
+	//printf("hello world\n");
+	//printf("hello " "world\n");
+	//printf("hel" "lo " "world\n");
+	// 
+//	int a = 10;
+//	int b = 20;
+//	PRINT(a);
+//	//printf("the value of" "a" "is %d\n", a)
+//	PRINT(b);
+//	return 0;
+//}
+
+#define CAT(X, Y) X##Y
 int main()
 {
-	do_forever;
-	//reg int a;
-	//int max = MAX;
-	//printf("%d\n", max);
-	//printf("%s", STR);
+	int Class20 = 2023;
+	printf("%d", CAT(Class, 20));
+	//printf("%d", Class20);
 	return 0;
 }
