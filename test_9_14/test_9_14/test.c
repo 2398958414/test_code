@@ -25,3 +25,16 @@
 //	return 0;
 //}
 
+int main()
+{
+	union s
+	{
+		short k;
+		char i[2];
+	}*p,a;
+	p = &a;
+	p->i[0] = 0x38;
+	p->i[1] = 0x39;
+	printf("%x", a.k);
+	return 0;
+}
