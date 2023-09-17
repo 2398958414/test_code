@@ -58,8 +58,60 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,1,2,3,4,7 };
+//	int arr_s[10] = { 0 };
+//	int arr_d[10] = { 0 };
+//	int pos_s = 0;
+//	int pos_d = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret = 0;
+//	int ret_s = 0;
+//	int ret_d= 0;
+//	int count = 0;
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		ret ^= arr[i];
+//	}
+//	for (i = 0; i < 32; i++)
+//	{
+//		if (((ret >> i) & 1) == 1)
+//		{
+//			break;
+//		}
+//		count++;
+//	}
+//	for (i = 0; i < sz; i++)
+//	{
+//		if ((arr[i] & (1 << count)) == 1 << count)
+//		{
+//			arr_s[pos_s] = arr[i];
+//			pos_s++;
+//		}
+//		else
+//		{
+//			arr_d[pos_d] = arr[i];
+//			pos_d++;
+//		}
+//	}
+//	for (i = 0; i < sz; i++)
+//	{
+//		ret_s ^= arr_s[i];
+//	}
+//	printf("%d ", ret_s);
+//	for (i = 0; i < sz; i++)
+//	{
+//		ret_d ^= arr_d[i];
+//	}
+//	printf("%d ", ret_d);
+//	return 0;
+//}
+
 int main()
 {
-	int arr[10] = { 1,2,3,4,5,1,2,3,4,6 };
+	int arr[] = { 1,2,3,4,5,1,2,3,4,6,7 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
 	return 0;
 }
