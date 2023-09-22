@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include <stdio.h>
+#include <math.h>
 
 //#define  INT_PTR int*
 //typedef int* int_ptr;
@@ -40,27 +41,89 @@
 //00000000000000000000000000001010
 
 
-int Find_Fib(int x)
+//int Find_Fib(int x)
+//{
+//	int a = 0;
+//	int b = 1;
+//	int c = 0;
+//	while (1)
+//	{
+//		if (c == x)
+//		{
+//			return 0;
+//		}
+//		else if (c > x)
+//		{
+//			return (x - b) < (c - x) ? (x - b) : (c - x);
+//		}
+//		a = b;
+//		b = c;
+//		c = a + b;
+//	}
+//	
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = Find_Fib(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int a = 0;
+//	int b = 1;
+//	int c = 0;
+//	while (1)
+//	{
+//		if (b == n)
+//		{
+//			printf("0");
+//			break;
+//		}
+//		else if (n < b)
+//		{
+//			if (abs(a - n) < abs(b - n))
+//			{
+//				printf("%d", abs(a - n));
+//			}
+//			else
+//			{
+//				printf("%d", abs(b - n));
+//			}
+//			break;
+//		}
+//		c = a + b;
+//		a = b;
+//		b = c;
+//	}
+//	return 0;
+//}
+
+#include <assert.h>
+
+char* replace_space(char* str)
 {
-	int a = 0;
-	int b = 1;
-	int c = 1;
-	while (1)
+	assert(str);
+	int count = 0;
+	char* start = str;
+	char* end = str;
+	while (*end)
 	{
-		if (c == x)
-		{
-			return 0;
-		}
-		a = b;
-		b = c;
-		c = a + b;
+		if (*end == ' ')
+			count++;
+		end++;
 	}
+
 }
+
 int main()
 {
-	int n = 0;
-	scanf("%d", &n);
-	int ret = Find_Fib(n);
-	printf("%d", ret);
-	return 0;
+	char arr[1024] = { 0 };
+	gets(arr);
+	printf("%s",replace_space(arr));
 }
