@@ -1,3 +1,0 @@
-﻿  test.c
-D:\Code\jjcp\jjcp\test.c(143,2): warning C4013: “gets”未定义；假设外部返回 int
-  jjcp.vcxproj -> D:\Code\jjcp\x64\Debug\jjcp.exe
