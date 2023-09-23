@@ -106,24 +106,42 @@
 
 #include <assert.h>
 
-char* replace_space(char* str)
+void replace_space(char* str)
 {
 	assert(str);
-	int count = 0;
-	char* start = str;
-	char* end = str;
-	while (*end)
+	int space_count = 0;
+	char* cur = str;
+	while (*cur)
 	{
-		if (*end == ' ')
-			count++;
-		end++;
+		if (*cur = ' ')
+		{
+			space_count++;
+		}
+		cur++;
 	}
-
+	char* end=cur--;
+	char* t_end = end + 2 * space_count;
+	while (end!=t_end)
+	{
+		if (*end != ' ')
+		{
+			*t_end-- = *end--;
+		}
+		else
+		{
+			end--;
+			*t_end-- = '0';
+			*t_end-- = '2';
+			*t_end-- = '%';
+		}
+	}
 }
 
 int main()
 {
 	char arr[1024] = { 0 };
 	gets(arr);
-	printf("%s",replace_space(arr));
+	replace_space(arr);
+	printf("%s", arr);
+	return 0;
 }
